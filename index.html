@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Code We Trust</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #2980b9;
+            --bg: #f8f9fa;
+            --text: #333;
+            --border: #eee;
+        }
+          .header {
+            text-align: center;
+            padding: 3em 2em;
+            max-width: 800px;
+            margin: 2em auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .main-title {
+            font-size: 3.5em;
+            color: #2980b9;
+            margin: 0 0 0.5em 0;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+
+        .question {
+            font-size: 2em;
+            color: #2c3e50;
+            margin: 0.8em 0;
+            padding: 0.8em 0;
+            border-top: 2px solid #eee;
+            border-bottom: 2px solid #eee;
+        }
+
+        .emphasis {
+            color: #2980b9;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #34495e;
+            margin: 1em 0 0 0;
+            line-height: 1.5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .header {
+            text-align: center;
+            padding: 2em;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2em;
+        }
+
+        h1 { 
+            font-size: 2.5em;
+            color: var(--accent);
+            margin: 0;
+        }
+
+        h2 { 
+            font-size: 1.5em;
+            color: var(--secondary);
+            margin: 0.5em 0;
+            border: none;
+        }
+
+        h3 { 
+            font-size: 1.5em;
+            color: var(--secondary);
+            margin: 1em 0 0.5em;
+            text-align: center;
+        }
+
+        h4 {
+            color: var(--secondary);
+            margin: 1em 0 0.5em;
+            text-align: center;
+        }
+
+        .section {
+            background: white;
+            padding: 1.5em;
+            margin: 1em auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .flex-grid {
+            display: flex;
+            gap: 1.5em;
+            margin: 1em 0;
+            justify-content: center;
+        }
+
+        .flex-grid > div {
+            flex: 1;
+            width: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .flex-grid {
+                flex-direction: column;
+            }
+            .flex-grid > div {
+                width: 100%;
+            }
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 1em auto;
+            background: white;
+            width: auto;
+            min-width: 50%;
+            max-width: 100%;
+        }
+
+        th, td {
+            padding: 0.75em 1em;
+            border: 1px solid var(--border);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        td:last-child {
+            white-space: normal;
+        }
+
+        th {
+            background: var(--bg);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: var(--bg);
+        }
+
+        .mermaid {
+            background: white;
+            padding: 1.5em;
+            border-radius: 8px;
+            margin: 1em auto;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 1.2em;
+            margin: 0.5em 0;
+            text-align: left;
+        }
+
+        ul li {
+            margin: 0.25em 0;
+            position: relative;
+        }
+
+        ul li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: -1em;
+        }
+
+        p {
+            margin: 0.5em 0;
+            text-align: left;
+        }
+
+        .table-title {
+            font-size: 1.2em;
+            color: var(--secondary);
+            margin: 0.5em 0;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .intro {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="main-title">In Code We Trust</h1>
+        <h2 class="question">Is your truth <span class="emphasis">THE</span> truth?</h2>
+        <p class="subtitle">Empowering Public Discourse Through AI-Moderated Debate</p>
+    </div>
+
+    <div class="section">
+        <h3>Introduction</h3>
+        <div class="intro">
+            <p>In modern democracies, crucial policy debates often happen without meaningful public participation. While social media has given everyone a voice, it hasn't provided the tools to make those voices effective or impactful. Major policy decisions affecting millions - from healthcare to education to economic policy - are frequently made without proper public discourse or understanding of what citizens truly want and why.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="flex-grid">
+            <div>
+                <h3>Problem Statement</h3>
+                <ul>
+                    <li>Limited platforms for structured policy debate</li>
+                    <li>Difficulty separating informed opinions from noise</li>
+                    <li>Echo chambers preventing idea refinement</li>
+                    <li>Corporate and special interest dominance</li>
+                    <li>Missing infrastructure for collective intelligence</li>
+                    <li>No clear path for good ideas to rise to the top</li>
+                </ul>
+            </div>
+		    <div>
+                <h3>Mission Statement</h3>
+                <p>"In Code We Trust" aims to empower the public voice by creating a platform where important policy debates can be refined, elevated, and amplified through structured competition and collective intelligence. Our mission is to transform public discourse from noise into signal by helping people develop and demonstrate the strength of their arguments.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Tournament Structure</h3>
+        <div class="mermaid">
+        flowchart TD
+            A["Topic Selection"] --> B["Qualification Phase"]
+            B --> C["AI Challenge Round"]
+            C --> D{"Pass?"}
+            D -->|"Yes"| E["Position Refinement"]
+            D -->|"No"| F["Practice"]
+            F --> C
+            E --> G["Finals"]
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Debate Format</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Duration</th>
+                        <th>Key Components</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Opening</td>
+                        <td>5min each</td>
+                        <td>Main argument, key points, sources</td>
+                    </tr>
+                    <tr>
+                        <td>Response</td>
+                        <td>3min each</td>
+                        <td>Address points, new evidence</td>
+                    </tr>
+                    <tr>
+                        <td>Rebuttal</td>
+                        <td>2min each</td>
+                        <td>Challenge responses, defend points</td>
+                    </tr>
+                    <tr>
+                        <td>Cross-Exam</td>
+                        <td>5min total</td>
+                        <td>30-second response limit</td>
+                    </tr>
+                    <tr>
+                        <td>Closing</td>
+                        <td>3min each</td>
+                        <td>Summary and final position</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mermaid">
+        graph TD
+            O[Opening Arguments] --> R[Response Phase]
+            R --> B[Rebuttal Phase]
+            B --> C[Cross-Examination]
+            C --> E[Closing Statements]
+            
+            O --> |After Round|AIP1[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+            R --> |After Round|AIP2[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+            B --> |After Round|AIP3[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+            C --> |After Round|AIP4[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+            E --> |After Round|AIP5[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+            
+            classDef default fill:#f0f0ff,stroke:#9370db,stroke-width:2px
+            classDef aibox fill:#2980b9,color:#fff,stroke:#2980b9
+            class AIP1,AIP2,AIP3,AIP4,AIP5 aibox
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>AI Phase Summary</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Duration</th>
+                        <th>Components</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AI Analysis</td>
+                        <td>2min</td>
+                        <td>Score breakdown, fact-check results</td>
+                    </tr>
+                    <tr>
+                        <td>Debater Response</td>
+                        <td>1min each</td>
+                        <td>Concessions and clarifications</td>
+                    </tr>
+                    <tr>
+                        <td>Audience Input</td>
+                        <td>2min</td>
+                        <td>Voting and feedback</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Scoring & Reputation Systems</h3>
+        <div class="flex-grid">
+            <div>
+                <div class="table-title">Scoring System</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Weight</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Argument Quality</td>
+                                <td>30%</td>
+                                <td>0-300</td>
+                            </tr>
+                            <tr>
+                                <td>Factual Accuracy</td>
+                                <td>25%</td>
+                                <td>0-250</td>
+                            </tr>
+                            <tr>
+                                <td>Debate Skill</td>
+                                <td>25%</td>
+                                <td>0-250</td>
+                            </tr>
+                            <tr>
+                                <td>Civil Discourse</td>
+                                <td>20%</td>
+                                <td>0-200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <div class="table-title">Reputation System</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Activity</th>
+                                <th>Base</th>
+                                <th>Max</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Vote + Explanation</td>
+                                <td>10</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>Consistent Voting</td>
+                                <td>5</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>Active Participation</td>
+                                <td>5</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <td>Quality Feedback</td>
+                                <td>15</td>
+                                <td>25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>AI Moderation Features</h3>
+        <div class="flex-grid">
+            <div>
+                <h4>Real-Time Monitoring</h4>
+                <ul>
+                    <li>Fact-checking against databases</li>
+                    <li>Source verification</li>
+                    <li>Logical fallacy detection</li>
+                    <li>Civility monitoring</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Fairness Enforcement</h4>
+                <ul>
+                    <li>Speaking time tracking</li>
+                    <li>Equal opportunity</li>
+                    <li>Interruption prevention</li>
+                    <li>Topic adherence</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Violation Handling</h4>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Minor</td>
+                        <td>Warning, point deduction</td>
+                    </tr>
+                    <tr>
+                        <td>Major</td>
+                        <td>Interruption, mandatory correction</td>
+                    </tr>
+                    <tr>
+                        <td>Critical</td>
+                        <td>Suspension, possible disqualification</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Example: Medicare for All Tournament</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Components</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Qualification</td>
+                        <td>AI testing of healthcare knowledge</td>
+                    </tr>
+                    <tr>
+                        <td>Position Refinement</td>
+                        <td>Internal debates, argument strengthening</td>
+                    </tr>
+                    <tr>
+                        <td>Final Debates</td>
+                        <td>Live participation, real-time fact checking</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Success Metrics</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Metrics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Participation</td>
+                        <td>Active debaters, audience engagement</td>
+                    </tr>
+                    <tr>
+                        <td>Impact</td>
+                        <td>Argument quality, opinion movement</td>
+                    </tr>
+                    <tr>
+                        <td>Quality</td>
+                        <td>Fact-check accuracy, debate civility</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            securityLevel: 'loose',
+            theme: 'default'
+        });
+    </script>
+</body>
+</html>
