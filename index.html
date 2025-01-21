@@ -269,7 +269,7 @@
 
     <div class="section">
       <h3>Tournament Structure</h3>
-     <div class="mermaid">
+      <div class="mermaid">
 flowchart TD
     A["Topic Selection"] --> B["Qualification Phase"]
     B --> C["AI Challenge Round"]
@@ -278,8 +278,8 @@ flowchart TD
     D -->|"No"| F["Practice"]
     F --> C
     E --> G["Finals"]
+      </div>
     </div>
-	</div>
 
     <div class="section">
       <h3>Debate Format</h3>
@@ -322,7 +322,7 @@ flowchart TD
         </table>
       </div>
 
-    <div class="mermaid">
+      <div class="mermaid">
 graph TD
     O[Opening Arguments] --> R[Response Phase]
     R --> B[Rebuttal Phase]
@@ -333,6 +333,9 @@ graph TD
     B --> |After Round|AIP3[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
     C --> |After Round|AIP4[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
     E --> |After Round|AIP5[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+    classDef default fill:#f0f0ff,stroke:#9370db,stroke-width:2px
+    classDef aibox fill:#2980b9,color:#fff,stroke:#2980b9
+    class AIP1,AIP2,AIP3,AIP4,AIP5 aibox
       </div>
     </div>
 
@@ -470,7 +473,7 @@ graph TD
       </div>
 
       <h4>Violation Handling</h4>
-      <div class="table-container">
+		<div class="table-container">
         <table>
           <thead>
             <tr>
@@ -556,7 +559,7 @@ graph TD
       mermaid.initialize({
         startOnLoad: true,
         securityLevel: "loose",
-        theme: "default",
+        theme: "default"
       });
     </script>
   </body>
