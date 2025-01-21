@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>In Code We Trust</title>
+    <title>In Truth We Trust</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
     <style>
       :root {
@@ -269,11 +269,15 @@
 
     <div class="section">
       <h3>Tournament Structure</h3>
-      <div class="mermaid">
-        flowchart TD A["Topic Selection"] --> B["Qualification Phase"] B -->
-        C["AI Challenge Round"] C --> D{"Pass?"} D -->|"Yes"| E["Position
-        Refinement"] D -->|"No"| F["Practice"] F --> C E --> G["Finals"]
-      </div>
+     <div class="mermaid">
+flowchart TD
+    A["Topic Selection"] --> B["Qualification Phase"]
+    B --> C["AI Challenge Round"]
+    C --> D{"Pass?"}
+    D -->|"Yes"| E["Position Refinement"]
+    D -->|"No"| F["Practice"]
+    F --> C
+    E --> G["
     </div>
 
     <div class="section">
@@ -317,18 +321,20 @@
         </table>
       </div>
 
-      <div class="mermaid">
-        graph TD O[Opening Arguments] --> R[Response Phase] R --> B[Rebuttal
-        Phase] B --> C[Cross-Examination] C --> E[Closing Statements] O -->
-        |After Round|AIP1[AI Phase Summary<br />Analysis ➜ Response ➜ Input] R
-        --> |After Round|AIP2[AI Phase Summary<br />Analysis ➜ Response ➜ Input]
-        B --> |After Round|AIP3[AI Phase Summary<br />Analysis ➜ Response ➜
-        Input] C --> |After Round|AIP4[AI Phase Summary<br />Analysis ➜ Response
-        ➜ Input] E --> |After Round|AIP5[AI Phase Summary<br />Analysis ➜
-        Response ➜ Input] classDef default
-        fill:#f0f0ff,stroke:#9370db,stroke-width:2px classDef aibox
-        fill:#2980b9,color:#fff,stroke:#2980b9 class AIP1,AIP2,AIP3,AIP4,AIP5
-        aibox
+    <div class="mermaid">
+graph TD
+    O[Opening Arguments] --> R[Response Phase]
+    R --> B[Rebuttal Phase]
+    B --> C[Cross-Examination]
+    C --> E[Closing Statements]
+    O --> |After Round|AIP1[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+    R --> |After Round|AIP2[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+    B --> |After Round|AIP3[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+    C --> |After Round|AIP4[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+    E --> |After Round|AIP5[AI Phase Summary<br/>Analysis ➜ Response ➜ Input]
+    classDef default fill:#f0f0ff,stroke:#9370db,stroke-width:2px
+    classDef aibox fill:#2980b9,color:#fff,stroke:#2980b9
+    class AIP1,AIP2,AIP3,AIP4,AIP5 aibox
       </div>
     </div>
 
